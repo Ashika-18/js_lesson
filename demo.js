@@ -4,16 +4,19 @@ const color = document.querySelector('#colorPicker');
 
 const colorBg = () => {
 
-    text.textContent = `カラーコード:${color.value}`
+    document.body.style.backgroundColor = color.value;
+
+    if (color.value === '#ffffff') {
+
+        text.textContent = `カラーコード: ${color.value} (white)`;
+    } else if (color.value === '#000000') {
+
+        text.textContent = `カラーコード: ${color.value} (black)`;
+
+    } else {
+
+        text.textContent = `カラーコード: ${color.value}`;
+    }
 }
  
 color.addEventListener('input', colorBg);
-
-const message = (name, weather) => {
-
-    return `${name}さま、ご機嫌麗しゅう！本日は${weather}ですよ。`;
-}
-
-console.log(message('Ashika', '大雨'));
-
-alert(message('知子', 'ド晴天'));
